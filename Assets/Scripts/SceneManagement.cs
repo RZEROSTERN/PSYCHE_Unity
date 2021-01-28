@@ -20,6 +20,11 @@ public class SceneManagement : MonoBehaviour
         SceneManager.LoadScene("LoadGame");
     }
 
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
     public void Exit()
     {
         Application.Quit();
@@ -33,7 +38,7 @@ public class SceneManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Return))
+        if (Input.GetKey(KeyCode.Return) && SceneManager.GetActiveScene().name == "MainTitle")
         {
             MainMenu();
         }
