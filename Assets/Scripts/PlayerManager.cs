@@ -4,32 +4,35 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public Vector2 speed = new Vector2(10, 10);
-    private Vector2 movement;
-    private Rigidbody2D rigidBodyComponent;
-    
-    void Start()
-    {
-        
-    }
+    public CharacterController2D controller;
+    public float runSpeed = 40f;
+    float horizontalMove = 0f;
+    bool jump = false;
+    bool crouch = false;
 
     // Update is called once per frame
     void Update()
     {
-        float inputX = Input.GetAxis("Horizontal");
-        float inputY = Input.GetAxis("Vertical");
+        horizontalMove = Input.GetAxis("Horizontal") * runSpeed;
 
-        // 4 - Movement per direction
-        movement = new Vector2(
-          speed.x * inputX,
-          speed.y * inputY);
+        if (Input.GetButtonDown("Jump"))
+        {
+            jump = true;
+        }  
+
+        if (Input.GetButtonDown("Crouch"))
+        {
+            crouch = true;
+        } 
+        else if (Input.GetButtonDown("Crouch"))
+        {
+            crouch = false;
+        }
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        if (rigidBodyComponent == null) 
-            rigidBodyComponent = GetComponent<Rigidbody2D>();
-
-        rigidBodyComponent.velocity = movement;
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        jump = false;
     }
 }
