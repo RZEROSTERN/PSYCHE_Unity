@@ -1774,6 +1774,7 @@ GameObject:
   m_Component:
   - component: {fileID: 327615036}
   - component: {fileID: 327615037}
+  - component: {fileID: 327615038}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -1800,7 +1801,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -354.5, y: 205.5}
   m_SizeDelta: {x: 52, y: 9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &327615037
@@ -1853,6 +1854,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &327615038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327615035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ab210ba9e02744349fa475178ad6df9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 327615037}
 --- !u!1 &360332320
 GameObject:
   m_ObjectHideFlags: 0
@@ -12710,8 +12724,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1053606735}
-  runSpeed: 25
-  health: 100
+  runSpeed: 40
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 327615038}
 --- !u!1 &1064723548
 GameObject:
   m_ObjectHideFlags: 0

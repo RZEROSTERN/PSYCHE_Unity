@@ -8,7 +8,7 @@ public class PlayerManager : MonoBehaviour
     public float runSpeed = 40f;
     public int maxHealth = 100;
     public int currentHealth;
-    public HealthBar = healthBar;
+    public HealthBar healthBar;
 
     float horizontalMove = 0f;
     bool jump = false;
