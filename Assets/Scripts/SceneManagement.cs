@@ -25,6 +25,11 @@ public class SceneManagement : MonoBehaviour
         SceneManager.LoadScene("Credits");
     }
 
+    public void SaveGame()
+    {
+        Debug.Log("Save");
+    }
+
     public void Exit()
     {
         Application.Quit();
